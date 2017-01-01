@@ -3,33 +3,41 @@
 }
 .icon-add{
 	background:url('icons/edit_add.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;
 }
 .icon-remove{
 	background:url('icons/edit_remove.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-save{
 	background:url('icons/filesave.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-cut{
 	background:url('icons/cut.png') no-repeat center center;
 }
 .icon-ok{
 	background:url('icons/ok.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-no{
 	background:url('icons/no.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-cancel{
 	background:url('icons/cancel.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-reload{
 	background:url('icons/reload.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-search{
 	background:url('icons/search.png') no-repeat center center;
+	background-size: 16px;
 }
 .icon-print{
 	background:url('icons/print.png') no-repeat center center;
@@ -66,41 +74,54 @@
 /* �Զ�����ʽ */
 .icon-servers{
 	background:url('icons/servers.png') no-repeat;
+	background-size: 16px;
 }
 .icon-server{
 	background:url('icons/server.png') no-repeat;
+	background-size: 16px;
 }
 .icon-server-error{
 	background:url('icons/server_error.png') no-repeat;
+	background-size: 16px;
 }
 .icon-home{
 	background:url('icons/home.png') no-repeat;
+	background: 16px;
 }
 .icon-download{
-	background:url('icons/download1.png') no-repeat;
+	background:url('icons/download.png') no-repeat;
+	background-size: 16px;
 }
 .icon-seed{
 	background:url('icons/seed.png') no-repeat;
+	background-size: 16px;
 }
 .icon-warning{
 	background:url('icons/warning.png') no-repeat;
+	background-size: 16px;
 }
 .icon-error{
-	background:url('icons/stop.png') no-repeat;
+	background:url('icons/error.png') no-repeat;
+	background-size: 16px;
 }
 .icon-pause{
 	background:url('icons/pause.png') no-repeat;
+	background-size: 16px;
 }
 .icon-check{
-	background:url('icons/yin-yang.png') no-repeat;
+	background:url('icons/check.png') no-repeat;
+	background-size: 16px;
 }
 .icon-actively{
 	background:url('icons/actively.png') no-repeat;
+	background-size: 16px;
 }
 .icon-wait{
 	background:url('icons/wait.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-chart {
 	background: url('icons/chart.png') no-repeat;
-}sk
+	background-size: 16px;
+}

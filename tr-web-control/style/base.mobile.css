@@ -3,48 +3,62 @@
 }
 .icon-pause-all{
 	background:url('images/pause-all.png') no-repeat;
+	background-size: 16px;
 }
 .ui-icon-pause-one{
 	background:url('images/pause.png') no-repeat;
+	background-size: 16px;
 }
 .icon-start-all{
 	background:url('images/start-all.png') no-repeat;
+	background-size: 16px;
 }
 .icon-start-one{
 	background:url('images/start.png') no-repeat;
+	background-size: 16px;
 }
 .icon-alt-speed-true{
 	background:url('images/alt-speed-true.png') no-repeat;
+	background-size: 16px;
 }
 .icon-alt-speed-false{
 	background:url('images/alt-speed-false.png') no-repeat;
+	background-size: 16px;
 }
 .icon-system-config{
 	background:url('images/system-config.png') no-repeat;
+	background-size: 16px;
 }
 .icon-test-port{
 	background:url('images/test-port.png') no-repeat;
 }
 .icon-loading{
 	background:url('images/loading.gif') no-repeat;
+	background-size: 16px;
 }
 .icon-about{
 	background:url('images/about.png') no-repeat;
+	background-size: 16px;
 }
 .icon-close{
 	background:url('images/close.png') no-repeat;
+	background-size: 16px;
 }
 .icon-enabled{
 	background:url('images/enabled.png') no-repeat;
+	background-size: 16px;
 }
 .icon-disabled{
 	background:url('images/disabled.png') no-repeat;
+	background-size: 16px;
 }
 .icon-remove-torrent{
 	background:url('images/remove.png') no-repeat;
+	background-size: 16px;
 }
 .icon-recheck-torrent{
 	background:url('images/checking.png') no-repeat;
+	background-size: 16px;
 }
 
 .torrent-list{
@@ -129,38 +143,47 @@
 
 .icon-up{
 	background:url('images/up.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-down{
 	background:url('images/down.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-drive{
 	background:url('images/drive.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-exclamation{
 	background:url('images/error.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-warning-type1{
 	background:url('images/warning.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-pause-small{
 	background:url('images/pause-small.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-checking{
 	background:url('images/checking.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-deny{
 	background:url('images/deny.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-allow{
 	background:url('images/allow.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-flag-0{
@@ -178,6 +201,7 @@
 
 .icon-folder-change{
 	background:url('images/folder-change.png') no-repeat;
+	background-size: 16px;
 }
 
 .icon-tracker-add{

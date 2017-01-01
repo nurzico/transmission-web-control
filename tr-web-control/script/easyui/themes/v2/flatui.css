@@ -1689,6 +1689,7 @@ a:hover.l-btn-plain-selected {
 }
 .searchbox-button {
   background: url('images/searchbox_button.png') no-repeat center center;
+  background-size: 16px;
 }
 .searchbox {
   border-color: #eeeeee;
@@ -2171,15 +2172,14 @@ a.s-btn-plain-active {
   color: #000000;
 }
 .tree-node-selected {
-  background: #FBEC88;
+  background: #d8ecfb;
   color: #000000;
 }
 .validatebox-invalid {
   background-image: url('images/validatebox_warning.png');
   background-repeat: no-repeat;
   background-position: right center;
-  border-color: #ffa8a8;
-  background-color: #fff3f3;
+  background-size: 16px;
   color: #000;
 }
 .tooltip {

@@ -122,12 +122,12 @@ system.lang = {
 	}
 	,"statusbar":{
 		"downloadspeed":"Download speed:"
-		,"uploadspeed":"Send speed:"
+		,"uploadspeed":"Upload speed:"
 		,"version":"Version:"
 	}
 	,"dialog":{
 		"torrent-add":{
-			"download-dir":"Download Dir:"
+			"download-dir":"Download Directory:"
 			,"torrent-url":"Torrent URL:"
 			,"tip-torrent-url":"Tip：Please multiple content with 'Enter' to separate"
 			,"autostart":"Auto Start:"
@@ -219,9 +219,9 @@ system.lang = {
 		}
 		,"torrent-changeDownloadDir":{
 			"title":"Set new dir"
-			,"old-download-dir":"Old dir:"
-			,"new-download-dir":"New dir:"
-			,"move-data":"If checked, move from previous location. otherwise, search 'New dir' for files."
+			,"old-download-dir":"Old directory:"
+			,"new-download-dir":"New directory:"
+			,"move-data":"If checked, move from previous location. otherwise, search 'New directory' for files."
 			,"set-error":"set error!"
 			,"recheck-data":"Recheck data."
 		}

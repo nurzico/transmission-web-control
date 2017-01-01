@@ -91,7 +91,7 @@ system.defaultLang = {
 		,"active":"Active"
 		,"paused":"Paused"
 		,"downloading":"Downloading"
-		,"sending":"Sending"
+		,"sending":"Seeding"
 		,"error":"Error"
 		,"warning":"Warning"
 		,"actively":"Actively"
@@ -122,7 +122,7 @@ system.defaultLang = {
 	}
 	,"statusbar":{
 		"downloadspeed":"Download speed:"
-		,"uploadspeed":"Send speed:"
+		,"uploadspeed":"Upload speed:"
 		,"version":"Version:"
 	}
 	,"dialog":{
@@ -218,10 +218,10 @@ system.defaultLang = {
 			,"remove-error":"Delete failed!"
 		}
 		,"torrent-changeDownloadDir":{
-			"title":"Set new dir"
-			,"old-download-dir":"Old dir:"
-			,"new-download-dir":"New dir:"
-			,"move-data":"If checked, move from previous location. otherwise, search 'New dir' for files."
+			"title":"Set new directory"
+			,"old-download-dir":"Old directory:"
+			,"new-download-dir":"New directory:"
+			,"move-data":"If checked, move from previous location. otherwise, search 'New directory' for files."
 			,"set-error":"set error!"
 			,"recheck-data":"Recheck data."
 		}
