@@ -29,12 +29,12 @@
 <body>
 	<!-- Home -->
 	<div data-role="page" id="main-page">
-		<div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false">
+		<div data-role="header" data-theme="a" data-position="fixed" data-tap-toggle="false">
 			<h1 id="page-title">Transmission Web Control Mobile</h1>
 			<a href="#" data-icon="home" data-iconpos="notext" data-direction="reverse" onclick="system.showContent('home');"></a>
 			<a href="#navPanel" data-icon="bars" data-iconpos="notext" data-direction="reverse"></a>
 		</div>
-		<div data-role="header"  data-theme="z" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+		<div data-role="header"  data-theme="b" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
 			<div id="torrent-page-bar" class="page-bar" style="display:none;">
 				<a id="page-prev" href="javascript:void(0);" class="iconlabel icon-arrow-left"></a>
 				<a id="page-number" class="page-number"></a>
@@ -45,7 +45,7 @@
 		<div data-role="panel" id="navPanel" data-display="overlay" data-position="right">
 			<ul data-role="listview" data-divider-theme="a" data-theme="c">
 				<li data-role='list-divider'><span system-lang="title.left"></span></li>
-				<li data-icon="plus"><a href="#" onclick="showAddTorrent();"><span system-lang="toolbar['add-torrent']"></span></a></li>
+				<li data-icon="plus"><a href="#" onclick="showAddTorrent();">ADD<span system-lang="toolbar['add-torrent']"></span></a></li>
 				<li data-icon="gear" style="display:none;"><a href="#"><span system-lang="toolbar['system-config']"></span></a></li>
 			</ul>
 			<ul data-role="listview" data-divider-theme="e" data-theme="e" data-icon="false" style="margin-top:15px;">
@@ -67,7 +67,7 @@
 					</table>
 				</li>
 			</ul>
-			<ul data-role="listview" data-divider-theme="a" data-theme="c" data-icon="false" style="margin-top:15px;">
+			<ul data-role="listview" data-divider-theme="a" data-theme="a" data-icon="false" style="margin-top:15px;">
 				<li data-role='list-divider'>UI</li>
 				<li><a href="#" onclick="location.href = 'index.html?devicetype=computer';"><img src="tr-web-control/style/images/computer.png" class="ui-li-icon"/><span system-lang="toolbar['ui-computer']"></span></a></li>
 				<li><a href="#" onclick="location.href = 'index.original.html';"><img src="tr-web-control/style/images/transmission.png" class="ui-li-icon"/><span system-lang="toolbar['ui-original']"></span></a></li>
@@ -80,7 +80,7 @@
 		<div data-role="content" style="padding:0px;">
 			<!-- 种子分类列表 -->
 			<div id="content-home" style="padding:15px;">
-				<ul data-role="listview" data-count-theme="e">
+				<ul data-role="listview" data-count-theme="b">
 					<li><a href="#" onclick="system.showContent({page:'torrent-list',type:'torrent-list',data:'all'});"><span system-lang="tree.all"></span><span id="count-all" class="ui-li-count" style="display:none;">0</span></a></li>
 					<li><a href="" onclick="system.showContent({page:'torrent-list',type:'torrent-list',data:'downloading'});"><span system-lang="tree.downloading"></span><span id="count-downloading" class="ui-li-count" style="display:none;">0</span></a></li>
 					<li><a href="" onclick="system.showContent({page:'torrent-list',type:'torrent-list',data:'paused'});"><span system-lang="tree.paused"></span><span id="count-paused" class="ui-li-count" style="display:none;">0</span></a></li>
@@ -94,13 +94,20 @@
 			<!-- 种子明细列表 -->
 			<div id="content-torrent-list" _style="padding:0px;overflow: hidden;" data-role="content">
 				<ul data-role="listview"
-					data-theme="c" data-dividertheme="d"
-					data-split-icon="gear" data-split-theme="d"
+					data-theme="a" data-dividertheme="c"
+					data-split-icon="gear" data-split-theme="c"
 					id="torrent-list"
 				/>
 			</div>
 			<!-- 添加种子 -->
 			<div id="content-add-torrent" style="padding:15px;display:none;">
+				<label id="dialog-torrent-add-upload-file" for="torrent_upload_file">Torrent File</label></td>
+				<form action="#" method="post" id="torrent_upload_form" enctype="multipart/form-data" target="torrent_upload_frame">
+							<input data-theme="z" style="display:none;" type="file" name="torrent_files[]" id="torrent_upload_file" hidden="hidden" multiple="multiple" />
+							<button data-theme="a" type="button" id="up-button">CHOOSE FILE</button>
+							<span id="up-text">No file chosen, yet!</span>
+				</form>
+				<br/>
 				<label for="torrent-url" system-lang="dialog['torrent-add']['torrent-url']"></label>
 				<textarea id="torrent-url" style="height:130px;"></textarea>
 				<label for="download-dir" system-lang="dialog['torrent-add']['download-dir']"></label>
@@ -113,7 +120,7 @@
 					</select>
 				</div>
 				<span system-lang="dialog['torrent-add']['tip-torrent-url']"></span><br/>
-				<button onclick="addUrl();"><label system-lang="dialog['public']['button-ok']"></label></button>
+				<button onclick="add();"><label system-lang="dialog['public']['button-ok']"></label></button>
 				<button onclick="system.showContent('home');"><label system-lang="dialog['public']['button-cancel']"></label></button>
 			</div>
 		</div>
@@ -166,6 +173,24 @@
 	</div>
 </body>
 <script type="text/javascript">
+	const realFileBtn = document.getElementById("torrent_upload_file");
+	const customBtn = document.getElementById("up-button");
+	const customTxt = document.getElementById("up-text");
+
+	customBtn.addEventListener("click", function() {
+  		realFileBtn.click();
+	});
+
+	realFileBtn.addEventListener("change", function() {
+  		if (realFileBtn.value) {
+    		customTxt.innerHTML = realFileBtn.value.match(
+      			/[\/\\]([\w\d\s\.\-\(\)]+)$/
+    			)[1];
+  		} else {
+    			customTxt.innerHTML = "No file chosen, yet!";
+  		}
+	});
+
 	function showAddTorrent()
 	{
 		var autostart = system.serverConfig['start-added-torrents'];
@@ -174,23 +199,31 @@
 		system.showContent('add-torrent');
 		$("#navPanel").panel("close");
 	}
-	function addUrl()
+	function add()
 	{
 		var urls = $("#torrent-url").val();
-		if (urls=="")
-		{
-			$("#torrent-url").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast").select();
-			return;
-		}
-		urls = urls.split("\n");
+		var isupload = $("#torrent_upload_file")[0].value!="";
 		var autostart = ($("#autostart").val()=="true"?true:false);
-		system.addTorrentsToServer(urls,urls.length,autostart,$("#download-dir").val(),function(){
-			$("#status").hide();
-			$("#navPanel").panel("close");
-		});
-		$("#torrent-url").val("");
-		system.showContent('home');
-		$("#navPanel").panel("open");
+		if(isupload){
+			system.uploadTorrentFile("torrent_upload_file",$("#download-dir").val(),!autostart, function(){
+				location.reload(true);
+			});
+		}
+		else {
+			if (urls=="")
+			{
+				$("#torrent-url").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast").select();
+				return;
+			}
+			urls = urls.split("\n");
+			system.addTorrentsToServer(urls,urls.length,autostart,$("#download-dir").val(),function(){
+				$("#status").hide();
+				$("#navPanel").panel("close");
+			});
+			$("#torrent-url").val("");
+			system.showContent('home');
+			$("#navPanel").panel("open");
+		}
 	}
 
 	(function(){
