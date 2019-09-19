@@ -10,13 +10,13 @@
 	<title>Transmission Web Control Mobile</title>
 	<!-- 样式表 -->
 	<link rel="stylesheet" type="text/css" href="tr-web-control/style/base.mobile.css?v=20130913" />
-   <link rel="stylesheet" type="text/css" href="tr-web-control/script/jquery/mobile/jquery.mobile-1.3.2.min.css?v=20130913"/>  
+	<link rel="stylesheet" type="text/css" href="tr-web-control/script/jquery/flatui/jquery.mobile.flatui.min.css" />
 	<!-- 基础类库 -->
 	<script type="text/javascript" src="tr-web-control/script/jquery/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="tr-web-control/script/jquery/jquery.form.js"></script>
 	<script type="text/javascript" src="tr-web-control/script/jquery/json2.min.js"></script>
 	<script type="text/javascript" src="tr-web-control/script/jquery/Base64.js"></script>
-	<script type="text/javascript" src="tr-web-control/script/jquery/mobile/jquery.mobile-1.3.2.min.js?v=20130913"></script>
+	<script type="text/javascript" src="tr-web-control/script/jquery/mobile/jquery.mobile-1.4.5.min.js"></script>
 	<!-- -->
 	<!-- 系统类库 -->
 	<script type="text/javascript" src="tr-web-control/script/min/public.js?v=20130913"></script>
@@ -48,7 +48,7 @@
 				<li data-icon="plus"><a href="#" onclick="showAddTorrent();">ADD<span system-lang="toolbar['add-torrent']"></span></a></li>
 				<li data-icon="gear" style="display:none;"><a href="#"><span system-lang="toolbar['system-config']"></span></a></li>
 			</ul>
-			<ul data-role="listview" data-divider-theme="e" data-theme="e" data-icon="false" style="margin-top:15px;">
+			<ul data-role="listview" data-divider-theme="c" data-theme="a" data-icon="false" style="margin-top:15px;">
 				<li data-role='list-divider' style="padding:0px 10px;">
 					<table style="width:100%;">
 						<tr>
@@ -67,7 +67,7 @@
 					</table>
 				</li>
 			</ul>
-			<ul data-role="listview" data-divider-theme="a" data-theme="a" data-icon="false" style="margin-top:15px;">
+			<ul data-role="listview" data-divider-theme="a" data-theme="f" data-icon="false" style="margin-top:15px;">
 				<li data-role='list-divider'>UI</li>
 				<li><a href="#" onclick="location.href = 'index.html?devicetype=computer';"><img src="tr-web-control/style/images/computer.png" class="ui-li-icon"/><span system-lang="toolbar['ui-computer']"></span></a></li>
 				<li><a href="#" onclick="location.href = 'index.original.html';"><img src="tr-web-control/style/images/transmission.png" class="ui-li-icon"/><span system-lang="toolbar['ui-original']"></span></a></li>
@@ -93,18 +93,14 @@
 			</div>
 			<!-- 种子明细列表 -->
 			<div id="content-torrent-list" _style="padding:0px;overflow: hidden;" data-role="content">
-				<ul data-role="listview"
-					data-theme="a" data-dividertheme="c"
-					data-split-icon="gear" data-split-theme="c"
-					id="torrent-list"
-				/>
+				<ul data-role="listview" data-theme="a" data-divider-theme="c" id="torrent-list" />
 			</div>
 			<!-- 添加种子 -->
 			<div id="content-add-torrent" style="padding:15px;display:none;">
 				<label id="dialog-torrent-add-upload-file" for="torrent_upload_file">Torrent File</label></td>
 				<form action="#" method="post" id="torrent_upload_form" enctype="multipart/form-data" target="torrent_upload_frame">
 							<input data-theme="z" style="display:none;" type="file" name="torrent_files[]" id="torrent_upload_file" hidden="hidden" multiple="multiple" />
-							<button data-theme="a" type="button" id="up-button">CHOOSE FILE</button>
+							<button data-theme="g" type="button" id="up-button">CHOOSE FILE</button>
 							<span id="up-text">No file chosen, yet!</span>
 				</form>
 				<br/>
@@ -114,33 +110,33 @@
 				<input id="download-dir"/>
 				<div data-role="fieldcontain">
 					<label for="autostart" system-lang="dialog['torrent-add']['autostart']"></label>
-					<select name="autostart" id="autostart" data-role="slider">
+					<select name="autostart" id="autostart" data-role="slider" data-theme="c">
 						<option value="false"></option>
 						<option value="true"></option>
 					</select>
 				</div>
 				<span system-lang="dialog['torrent-add']['tip-torrent-url']"></span><br/>
 				<button onclick="add();"><label system-lang="dialog['public']['button-ok']"></label></button>
-				<button onclick="system.showContent('home');"><label system-lang="dialog['public']['button-cancel']"></label></button>
+				<button data-theme="d" onclick="system.showContent('home');"><label system-lang="dialog['public']['button-cancel']"></label></button>
 			</div>
 		</div>
-		<div data-theme="c" data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
 			<!-- 种子操作工具栏 -->
-			<div id="torrent-toolbar"  data-role="content" style="display:none;padding:0px 10px;" data-theme="a">
+			<div id="torrent-toolbar"  data-role="content" style="display:none;padding:0px 10px;border:none; background:none;" data-theme="a">
 				<div data-role="controlgroup" data-type="horizontal">
-					<a id="torrent-check-all" data-role="button" data-inline="true" href="#" data-icon="check" data-theme="b">
+					<a id="torrent-check-all" data-role="button" data-inline="true" href="#" data-icon="check" data-theme="f">
 						<span id="torrent-checked-count"></span>
 					</a>
-					<a data-role="button" data-inline="true" id="toolbar_start" href="#" onclick="system.changeSelectedTorrentStatus('start',this);">
+					<a data-role="button" data-inline="true" id="toolbar_start" href="#" data-theme="g" onclick="system.changeSelectedTorrentStatus('start',this);">
 						<span system-lang="toolbar.start"></span>
 					</a>
-					<a data-role="button" data-inline="true" id="toolbar_pause" href="#" onclick="system.changeSelectedTorrentStatus('stop',this);">
+					<a data-role="button" data-inline="true" id="toolbar_pause" href="#" data-theme="e" onclick="system.changeSelectedTorrentStatus('stop',this);">
 						<span system-lang="toolbar.pause"></span>
 					</a>
-					<a data-role="button" data-inline="true" id="toolbar_recheck" href="#" onclick="system.changeSelectedTorrentStatus('verify',this);">
+					<a data-role="button" data-inline="true" id="toolbar_recheck" href="#" data-theme="b" onclick="system.changeSelectedTorrentStatus('verify',this);">
 						<span system-lang="toolbar.recheck"></span>
 					</a>
-					<a data-role="button" data-inline="true" id="toolbar_remove" href="#dialog-torrent-remove-confirm" data-icon="delete" data-iconpos="right">
+					<a data-role="button" data-inline="true" id="toolbar_remove" href="#dialog-torrent-remove-confirm" data-theme="d" data-icon="delete" data-iconpos="right">
 						<span system-lang="toolbar.remove"></span>
 					</a>
 				</div>
